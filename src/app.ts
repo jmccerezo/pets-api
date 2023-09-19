@@ -21,9 +21,6 @@ const swaggerSpec = {
       description: "Node Express TypeScript REST API",
     },
   },
-  paths: {
-    tags:"Pets"
-  },
   apis: ["./src/pets/routes/*.ts", "./src/pets/routes/*.js"],
 };
 
