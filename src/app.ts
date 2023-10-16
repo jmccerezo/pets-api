@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSdoc from "swagger-jsdoc";
-import petRoutes from "./pets/routes/pets.routes";
+import petRoutes from "./pet/routes/pet.route";
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ const swaggerSpec = {
       description: "Node Express TypeScript REST API",
     },
   },
-  apis: ["./src/pets/routes/*.ts", "./src/pets/routes/*.js"],
+  apis: ["./src/pet/routes/*.ts", "./src/pet/routes/*.js"],
 };
 
 const options = { customSiteTitle: "Pets API - Swagger UI" };
@@ -35,11 +35,9 @@ app.use(
   swaggerUI.setup(swaggerJSdoc(swaggerSpec), options)
 );
 
-if (process.env.NODE_ENV !== "test") {
-  app.listen(PORT, () =>
-    console.log(`Server is running at http://localhost:${PORT}`)
-  );
-}
+app.listen(PORT, () =>
+  console.log(`Server is running at http://localhost:${PORT}`)
+);
 
 mongoose.Promise = Promise;
 mongoose.connect(DATABASE_URL);

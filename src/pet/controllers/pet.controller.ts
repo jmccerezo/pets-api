@@ -1,37 +1,37 @@
 import {
-  addItem,
-  listItems,
-  getItem,
-  editItem,
-  deleteItem,
-} from "../models/pets.models";
+  create,
+  findAll,
+  findById,
+  findByIdAndUpdate,
+  findByIdAndDelete,
+} from "../services/pet.service";
 
 export const addPet = async (req: any, res: any) => {
-  await addItem(req.body)
+  await create(req.body)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const listPets = async (req: any, res: any) => {
-  await listItems()
+export const getAllPets = async (req: any, res: any) => {
+  await findAll()
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const getPet = async (req: any, res: any) => {
-  await getItem(req.params.id)
+export const getOnePet = async (req: any, res: any) => {
+  await findById(req.params.id)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
 export const editPet = async (req: any, res: any) => {
-  await editItem(req.params.id, req.body)
+  await findByIdAndUpdate(req.params.id, req.body)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
 export const deletePet = async (req: any, res: any) => {
-  await deleteItem(req.params.id)
+  await findByIdAndDelete(req.params.id)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };

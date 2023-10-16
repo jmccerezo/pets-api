@@ -1,11 +1,11 @@
 import express from "express";
 import {
-  listPets,
-  getPet,
-  editPet,
   addPet,
+  getAllPets,
+  getOnePet,
+  editPet,
   deletePet,
-} from "../controllers/pets.controllers";
+} from "../controllers/pet.controller";
 
 /**
  * @swagger
@@ -50,8 +50,8 @@ import {
  *
  * /pets:
  *  post:
- *      summary: Add new pet
- *      description: Add new pet
+ *      summary: Add pet
+ *      description: Add pet
  *      requestBody:
  *          description: A JSON object containing pet information
  *          content:
@@ -65,9 +65,9 @@ import {
  *                    gender: Male
  *                    age: 11
  *      responses:
- *      200:
+ *       200:
  *          description: Success
- *      500:
+ *       500:
  *          description: Internal Server Error
  *
  *  get:
@@ -81,8 +81,8 @@ import {
  *
  * /pets/{id}:
  *  get:
- *     summary: Get a single pet
- *     description: Get a single pet
+ *     summary: Get one pet
+ *     description: Get one pet
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,8 +97,8 @@ import {
  *         description: Internal Server Error
  *
  *  put:
- *     summary: Edit pet details
- *     description: Edit pet details
+ *     summary: Edit pet
+ *     description: Edit pet
  *     parameters:
  *       - in: path
  *         name: id
@@ -107,22 +107,22 @@ import {
  *         required: true
  *         description: Pet id
  *     requestBody:
- *       description: A JSON object containing pet information
- *       content:
- *         application/json:
- *           schema:
- *              $ref: '#/components/schemas/Pet'
- *           example:
- *              name: Hachiko
- *              breed: Akita Inu
- *              type: Dog
- *              gender: Male
- *              age: 11
+ *          description: A JSON object containing pet information
+ *          content:
+ *             application/json:
+ *                 schema:
+ *                    $ref: '#/components/schemas/Pet'
+ *                 example:
+ *                    name: Hachiko
+ *                    type: Dog
+ *                    breed: Akita Inu
+ *                    gender: Male
+ *                    age: 11
  *     responses:
- *     200:
- *        description: Success
- *     500:
- *       description: Internal Server Error
+ *      200:
+ *          description: Success
+ *      500:
+ *          description: Internal Server Error
  *
  *  delete:
  *     summary: Delete pet
@@ -135,19 +135,19 @@ import {
  *         required: true
  *         description: Pet id
  *     responses:
- *     200:
- *        description: Success
- *     500:
- *       description: Internal Server Error
+ *      200:
+ *          description: Success
+ *      500:
+ *          description: Internal Server Error
  */
 
 const router = express.Router();
 
 router.post("/", addPet);
 
-router.get("/", listPets);
+router.get("/", getAllPets);
 
-router.get("/:id", getPet);
+router.get("/:id", getOnePet);
 
 router.put("/:id", editPet);
 
