@@ -12,24 +12,18 @@
 
 ### Run Locally
 
-Download the repository
+Clone or Download the repository
 
 Go to the project directory
 
-Install dependencies(npm):
+Install the dependencies:
 
 ```bash
   npm install
 ```
 
-Start the development server(npm):
+Start the development server:
 
 ```bash
   npm run dev
-```
-
-Build your work (npm, target ES6)
-
-```bash
-  npm run build
 ```
