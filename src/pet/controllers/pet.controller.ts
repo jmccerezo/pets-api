@@ -1,3 +1,4 @@
+import express from "express";
 import {
   create,
   findAll,
@@ -6,32 +7,34 @@ import {
   findByIdAndDelete,
 } from "../services/pet.service";
 
-export const addPet = async (req: any, res: any) => {
+const addPet = async (req: express.Request, res: express.Response) => {
   await create(req.body)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const getAllPets = async (req: any, res: any) => {
+const getAllPets = async (req: express.Request, res: express.Response) => {
   await findAll()
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const getOnePet = async (req: any, res: any) => {
+const getOnePet = async (req: express.Request, res: express.Response) => {
   await findById(req.params.id)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const editPet = async (req: any, res: any) => {
+const editPet = async (req: express.Request, res: express.Response) => {
   await findByIdAndUpdate(req.params.id, req.body)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
 
-export const deletePet = async (req: any, res: any) => {
+const deletePet = async (req: express.Request, res: express.Response) => {
   await findByIdAndDelete(req.params.id)
     .then((data) => res.status(200).json(data))
     .catch((err: Error) => res.status(500).send(err));
 };
+
+export { addPet, getAllPets, getOnePet, editPet, deletePet };
