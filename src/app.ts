@@ -35,12 +35,13 @@ app.use(
   swaggerUI.setup(swaggerJSdoc(swaggerSpec), options)
 );
 
-app.listen(PORT, () =>
-  console.log(`Server is running at http://localhost:${PORT}`)
-);
-
-mongoose.Promise = Promise;
-mongoose.connect(DATABASE_URL);
-mongoose.connection.on("error", (error: Error) => console.log(error));
+mongoose
+  .connect(DATABASE_URL)
+  .then(() =>
+    app.listen(PORT, () =>
+      console.log(`Server is running at http://localhost:${PORT}`)
+    )
+  )
+  .catch((error: Error) => console.log(error));
 
 export default app;
