@@ -5,7 +5,7 @@ import {
   getOnePet,
   editPet,
   deletePet,
-} from "../controllers/pet.controller";
+} from "../controllers/pet.controllers";
 
 const router = express.Router();
 

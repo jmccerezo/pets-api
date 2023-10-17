@@ -5,7 +5,7 @@ import {
   findById,
   findByIdAndUpdate,
   findByIdAndDelete,
-} from "../services/pet.service";
+} from "../services/pet.services";
 
 const addPet = async (req: Request, res: Response) => {
   await create(req.body)

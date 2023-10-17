@@ -4,7 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSdoc from "swagger-jsdoc";
-import petRoutes from "./pet/routes/pet.route";
+import petRoutes from "./pet/routes/pet.routes";
 
 dotenv.config();
 
