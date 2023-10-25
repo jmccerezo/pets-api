@@ -100,6 +100,8 @@ router.get("/", getAllPets);
  *     responses:
  *      200:
  *         description: Success
+ *      404:
+ *         description: Not Found
  *      500:
  *         description: Internal Server Error
  */
@@ -135,6 +137,8 @@ router.get("/:id", getOnePet);
  *     responses:
  *      200:
  *          description: Success
+ *      404:
+ *         description: Not Found
  *      500:
  *          description: Internal Server Error
  */
@@ -158,6 +162,8 @@ router.put("/:id", editPet);
  *     responses:
  *      200:
  *          description: Success
+ *      404:
+ *         description: Not Found
  *      500:
  *          description: Internal Server Error
  */
