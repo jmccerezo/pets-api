@@ -18,7 +18,7 @@ const swaggerSpec = {
     info: {
       title: "Pets API",
       version: "1.0.0",
-      description: "Node Express TypeScript REST API",
+      description: "REST API using Node.js, Express, TypeScript and MongoDB",
     },
   },
   apis: ["./src/pet/routes/*.ts", "./src/pet/routes/*.js"],
